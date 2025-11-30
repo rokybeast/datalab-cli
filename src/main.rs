@@ -41,11 +41,7 @@ enum Commands {
 
 // errors
 fn dl_error(module: &str, file: &str, suggestion: &str, pos: u32, code: &str) {
-    println!(
-        "{} From: '{}'",
-        "[ERROR]:".red().bold(),
-        module.yellow()
-    );
+    println!("{} From: '{}'", "[ERROR]:".red().bold(), module.yellow());
     println!(
         "\t{} [{}]",
         "An unexpected error occurred.".white(),
@@ -69,12 +65,12 @@ fn dl_error(module: &str, file: &str, suggestion: &str, pos: u32, code: &str) {
 fn update_bar(speed: f32) {
     let pb = ProgressBar::new(100);
 
-    // emdash '—' style
+    // emdash '— ' style
     pb.set_style(
         ProgressStyle::default_bar()
             .template("{msg}\n{spinner:.green} [{elapsed_precise}] [{wide_bar:.cyan/blue}] {pos}/{len} ({eta})")
             .unwrap()
-            .progress_chars("—")
+            .progress_chars("— ")
     );
 
     pb.set_message("==> Updating datalab");
